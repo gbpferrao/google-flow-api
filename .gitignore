@@ -1,0 +1,8 @@
+# Private: Google session cookies, browser profile, captures, UI traffic and screenshots
+.api-anything/
+
+# Personal media
+downloads/*
+references/*
+!downloads/.gitkeep
+!references/.gitkeep
