@@ -16,9 +16,11 @@ file uploads.
 | Download script | done |
 | Signed-in session | done |
 | UI script: create project, generate with current settings, download | done (`scripts\flow-ui.mjs`) |
-| UI script: choose model, resolution, aspect, count | not built yet |
-| Reference uploads | not built yet |
-| Fast api-anything operations (list projects found: `UpteDb`) | not learned yet |
+| UI script: choose type, mode, model, aspect, count; credit check | done (`generate --type --mode --model --aspect --count --max-credits`) |
+| UI script: download existing media with the session | done (`fetch`) |
+| UI script: upload files, attach references to a prompt | done (`upload`, `generate --ref`) |
+| Fast api-anything operations: `listProjects`, `listMedia` | done (tier 1, plain HTTP) |
+| Create, upload and generate as fast operations | not possible: Flow requires a fresh reCAPTCHA token per request, so these stay in the browser |
 
 ## Requirements
 

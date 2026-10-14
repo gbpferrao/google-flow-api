@@ -36,6 +36,9 @@ try {
   if (!url) throw new Error("usage: node download.mjs <url> [target]");
   const res = await fetch(url, { redirect: "follow" });
   if (!res.ok || !res.body) throw new Error(`HTTP ${res.status} for ${url}`);
+  // A sign-in page instead of media means the URL needs the Google session: use flow-ui.mjs fetch.
+  if (/text\/html/i.test(res.headers.get("content-type") ?? ""))
+    throw new Error("got a web page, not a file: this URL needs the signed-in session. Use: node scripts\\flow-ui.mjs fetch <url> [target]");
   const path = targetPath(target, url, res.headers.get("content-type"));
   mkdirSync(dirname(path), { recursive: true });
   await pipeline(Readable.fromWeb(res.body), createWriteStream(path));
